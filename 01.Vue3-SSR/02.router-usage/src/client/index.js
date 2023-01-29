@@ -10,7 +10,7 @@ const router = createRouter(createWebHistory())
 app.use(router)
 
 // 等待路由加载完成再挂载app
-router.isReady.then(() => {
+router.isReady().then(() => {
   app.mount('#app')
 })
 
