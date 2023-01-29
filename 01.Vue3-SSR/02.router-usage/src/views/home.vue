@@ -1,17 +1,8 @@
 <template>
   <div>
-    <h2>vue-demo</h2>
+    <h2>Home</h2>
     <div>{{ count }}</div>
     <button @click="addCount">+1</button>
-    <div>
-      <RouterLink to="/">
-        <button>home</button>
-      </RouterLink>
-      <RouterLink to="/about">
-        <button>about</button>
-      </RouterLink>
-    </div>
-    <RouterView />
   </div>
 </template>
 

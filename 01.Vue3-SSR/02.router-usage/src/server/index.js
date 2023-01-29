@@ -1,5 +1,8 @@
 import { renderToString } from '@vue/server-renderer'
 import createApp from '../app'
+import createRouter from '../router'
+// 内存路由 给node使用的 因为在node环境下没有关于hash\history这些API
+import { createMemoryHistory } from 'vue-router'
 
 const express = require('express')
 
@@ -9,8 +12,17 @@ const server = express()
 // 浏览器遇到<script src="/client/client_bundle.js"></script> 就去build下找资源
 server.use(express.static('build'))
 
-server.get('/', async (req, res) => {
+server.get('/*', async (req, res) => {
   let app = createApp()
+
+  // 安装路由
+  const router = createRouter(createMemoryHistory())
+  app.use(router)
+  // 等待路由跳转完毕
+  await router.push(req.url || '/')
+  // 等待异步组件、路由加载完毕
+  await router.isReady()
+
   let appStringHTML = await renderToString(app)
   res.send(
     `
