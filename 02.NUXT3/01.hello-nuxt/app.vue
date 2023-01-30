@@ -31,4 +31,26 @@ console.log(appConfig)
 onMounted(() => {
   document.title = appConfig.title
 })
+
+// 4.动态添加app页面的head内容
+useHead({
+  title: 'UseHead-title',
+  bodyAttrs: {
+    class: 'wsq'
+  },
+  meta: [
+    {
+      name: 'wsq',
+      content:'wsq12121'
+    }
+  ],
+  style:[],
+  link:[],
+  script: [
+    {
+      src: 'htttp:wsq12999.com',
+      body: true
+    }
+  ]
+})
 </script>
