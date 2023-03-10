@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@element-plus/nuxt'],
+  // modules配置nuxt3的拓展模块
+  modules: ['@element-plus/nuxt', '@pinia/nuxt'],
   css: [
     'normalize.css', // 直接引入第三方css
     '@/assets/css/global.scss'
