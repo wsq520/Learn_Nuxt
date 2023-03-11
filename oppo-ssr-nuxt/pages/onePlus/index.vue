@@ -1,21 +1,21 @@
 <template>
   <div class="onePlus">
-    onePlus
+    <div class="wrapper content">
+      <swiper :banners="data?.data.banners"></swiper>
+      <tab-category :categorys="data?.data.categorys"></tab-category>
+      <template v-for="category in data?.data.categorys" :key="category.id">
+        <section-category
+          :category="category"
+          v-if="category.productDetailss && category.productDetailss.length"
+        ></section-category>
+      </template>
+    </div>
   </div>
 </template>
-
 <script lang="ts" setup>
-// export interface IProps {
-//   title: string
-// }
-
-// const props = withDefaults(defineProps<IProps>(), {
-//   title: ''
-// })
+import { getHomeInfo } from '@/service/home'
+const { data } = await getHomeInfo("onePlus")
 </script>
 
-<style lang="scss">
-.onePlus {
-
-}
+<style lang="scss" scoped>
 </style>
