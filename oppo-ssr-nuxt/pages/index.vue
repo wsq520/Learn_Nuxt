@@ -3,6 +3,8 @@
     <div class="wrapper content">
       <swiper :banners="banners"></swiper>
       <tab-category :categorys="categorys" @item-click="handleItemClick"></tab-category>
+      <section-title title="Find N 系列"></section-title>
+      <grid-view :productDetails="categorys![1].productDetailss"></grid-view>
     </div>
   </div>
 </template>
