@@ -15,20 +15,17 @@ import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store'
 import type { ICategory } from '@/store'
 
-// export interface IProps {
-//   title: string
-// }
-
-// const props = withDefaults(defineProps<IProps>(), {
-//   title: 'home'
-// })
-
 const homeStore = useHomeStore()
 const { banners, categorys } = storeToRefs(homeStore)
 
 // 处理子组件点击事件
 const handleItemClick = (item: ICategory) => {
-
+  return navigateTo({
+    path: '/oppo-detail',
+    query: {
+      type: item.type
+    }
+  })
 }
 
 </script>
