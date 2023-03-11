@@ -1,8 +1,13 @@
 <template>
   <div class="grid-view">
+    <div class="view-item first" v-if="categoryUrl">
+      <img :src="categoryUrl" alt="">
+    </div>
     <template v-for="(item, index) in productDetails" :key="index">
       <div class="view-item">
-        <grid-view-item :productDetail="item"></grid-view-item>
+        <slot>
+          <grid-view-item :productDetail="item"></grid-view-item>
+        </slot>
       </div>
     </template>
   </div>
@@ -13,10 +18,12 @@ import { IProductDetail } from '~~/store'
 
 export interface IProps {
   productDetails: IProductDetail[]
+  categoryUrl?: string
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  productDetails: () => []
+  productDetails: () => [],
+  categoryUrl: ''
 })
 </script>
 

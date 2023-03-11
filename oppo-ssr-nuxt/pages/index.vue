@@ -3,8 +3,9 @@
     <div class="wrapper content">
       <swiper :banners="banners"></swiper>
       <tab-category :categorys="categorys" @item-click="handleItemClick"></tab-category>
-      <section-title title="Find N 系列"></section-title>
-      <grid-view :productDetails="categorys![1].productDetailss"></grid-view>
+      <template v-for="(item, index) in categorys" :key="item.id">
+        <section-category :category="item"></section-category>
+      </template>
     </div>
   </div>
 </template>
