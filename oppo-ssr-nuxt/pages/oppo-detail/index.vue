@@ -71,11 +71,6 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
           }
         }
 
-        /* 移动线条激化样式 */
-        .el-tabs__nav-next+.el-tabs__nav-scroll .el-tabs__active-bar {
-          /* left: 0px; */
-        }
-
         .el-tabs__active-bar {
           background-color: $priceColor;
           /* left: 48px; */
