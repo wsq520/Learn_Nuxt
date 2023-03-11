@@ -1,7 +1,9 @@
 <template>
-  <div class="grid-veiw">
+  <div class="grid-view">
     <template v-for="(item, index) in productDetails" :key="index">
-      <div class="view-item"></div>
+      <div class="view-item">
+        <grid-view-item :productDetail="item"></grid-view-item>
+      </div>
     </template>
   </div>
 </template>
@@ -21,7 +23,7 @@ const props = withDefaults(defineProps<IProps>(), {
 <style lang="scss" scoped>
 .grid-view {
   width: $contentWidth + 18px;
-  /* @include border(green); */
+  /*@include border(green);*/
   @include normalFlex();
   flex-wrap: wrap;
   justify-content: flex-start;
